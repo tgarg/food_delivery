@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
+gem 'bootstrap-sass', '2.0.0'
 
 group :development do
   gem 'sqlite3', '1.3.5'
-  gem 'rspec-rails', '2.9.0'
+  gem 'rspec-rails'
   gem 'ZenTest'
 end
 
@@ -19,11 +20,12 @@ end
 gem 'jquery-rails', '2.0.0'
 
 group :test do
-  gem 'rspec-rails', '2.9.0'
+  gem 'rspec-rails'
   gem 'capybara', '1.1.2'
   gem 'spork'
   gem 'ZenTest'
   gem 'autotest-growl'
+  gem 'autotest-rails'
 end
 
 group :production do
