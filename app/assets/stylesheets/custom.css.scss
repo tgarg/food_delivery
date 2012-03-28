@@ -1,0 +1,152 @@
+// Change framework variables here
+$navbarLinkColor: #D8D8D8;
+$navbarBackground: #001A57;
+$navbarBackgroundHighlight: #113AA6;
+
+/*Importing Bootstrap framework
+Note: This will respect the variable assignments above!*/
+
+@import "bootstrap";
+
+/*Add your CSS Here*/
+
+/*Possibly some sticky footer code here.. disregard for now.
+html, body {
+  height: 100%;
+}
+
+footer {
+  color: #666;
+  background: #222;
+  padding: 17px 0 18px 0;
+  border-top: 1px solid #000;
+}*/
+
+.hero-stretch > .container {
+	width: auto;
+}
+
+.hero-unit {
+	background-color: #FFF5DE;
+}
+
+
+/*Hartl's CSS with some tweaks*/
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar .nav > li > a {
+	font-size: 1.1em;
+	font-weight: bold;
+	letter-spacing: 0.3px;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a {
+  color: #555;
+}  
+
+footer a:hover { 
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+body {
+  padding-top: 35px;
+  background-color: #FFFDF7;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center h1 {
+  margin-bottom: 5px;
+}
+
+.center h2 {
+  margin-bottom: 20px;
+}
+
+.center {
+	text-align:center;
+}
+
+/*Center page content*/
+
+p {
+	margin-top: 12px;
+}
+
+/*Typography tweaks from Hartl's book*/
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.hero-unit h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #999;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
