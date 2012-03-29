@@ -1,4 +1,4 @@
-// Change framework variables here
+/*Change Bootstrap framework variables here*/
 $navbarLinkColor: #D8D8D8;
 $navbarBackground: #001A57;
 $navbarBackgroundHighlight: #113AA6;
@@ -10,24 +10,9 @@ Note: This will respect the variable assignments above!*/
 
 /*Add your CSS Here*/
 
-/*Possibly some sticky footer code here.. disregard for now.
-html, body {
-  height: 100%;
-}
-
-footer {
-  color: #666;
-  background: #222;
-  padding: 17px 0 18px 0;
-  border-top: 1px solid #000;
-}*/
-
-.hero-stretch > .container {
-	width: auto;
-}
-
 .hero-unit {
 	background-color: #FFF5DE;
+  border-bottom: 1px solid #C8B48C;
 }
 
 
@@ -60,11 +45,12 @@ footer {
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
   color: #999;
+  border-top: 1px solid #BBB;
+  margin-top: 65px;
+  padding-top: 5px;
 }
+
 
 footer a {
   color: #555;
@@ -87,6 +73,8 @@ footer ul li {
   float: left;
   margin-left: 10px;
 }
+
+/*Center page content*/
 
 body {
   padding-top: 35px;
@@ -117,8 +105,6 @@ textarea {
 	text-align:center;
 }
 
-/*Center page content*/
-
 p {
 	margin-top: 12px;
 }
@@ -132,21 +118,27 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   text-align: center;
   padding-top: 10px;
+  color: #3B321F;
 }
 
 .hero-unit h2 {
   font-size: 1.7em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   text-align: center;
   font-weight: normal;
-  color: #999;
+  color: #A0815F;
 }
 
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+/*Stretch class to make elements stretch across the screen*/
+.stretch {
+  width: 100%;
 }
