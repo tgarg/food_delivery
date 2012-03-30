@@ -8,14 +8,6 @@ Note: This will respect the variable assignments above!*/
 
 @import "bootstrap";
 
-/*Add your CSS Here*/
-
-.hero-unit {
-	background-color: #FFF5DE;
-  border-bottom: 1px solid #C8B48C;
-}
-
-
 /*Hartl's CSS with some tweaks*/
 /* header */
 
@@ -77,8 +69,8 @@ footer ul li {
 /*Center page content*/
 
 body {
+  background-color: #FFFAE9;
   padding-top: 35px;
-  background-color: #FFFDF7;
 }
 
 html {
@@ -136,6 +128,44 @@ h1 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+dl {
+  font-size: 15px;
+}
+
+/*Add your CSS Here*/
+
+.hero-unit {
+  background-color: #FFF5DE;
+  border-bottom: 1px solid #C8B48C;
+}
+
+.bump1 {
+  padding-top: 30px;
+}
+
+.bump2 {
+  padding-top: 50px;
+}
+
+.hero {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #FFF5DE;
+  border-bottom: 1px solid #C8B48C;
+  border-top: 1px solid #C8B48C;
+  border-right: 1px solid #C8B48C;
+  border-left: 1px solid #C8B48C;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.hero > h1 {
+  margin-bottom: 0px;
+  text-align: center;
+  padding-top: 0px;
 }
 
 /*Stretch class to make elements stretch across the screen*/
