@@ -2,7 +2,9 @@ require 'spec_helper'
 
 describe User do
   
-  before { @user = User.new(name: "Example User", email: "user@example.com", netid: "xyz89", cardnumber: "999999999") }
+  before { @user = User.new(name: "Example User", email: "user@example.com",
+                            netid: "xyz89", cardnumber: "999999999",
+                            password: "asdfgh", password_confirmation: "asdfgh") }
   
   subject { @user }
   
@@ -10,8 +12,47 @@ describe User do
   it { should respond_to(:email) }
   it { should respond_to(:netid) }
   it { should respond_to(:cardnumber) }
+  it { should respond_to(:password_digest) }
+  it { should respond_to(:password) }
+  it { should respond_to(:password_confirmation) }
+  it { should respond_to(:authenticate) }
   
   it { should be_valid }
+
+  describe "authenticate method" do
+    before { @user.save }
+    let(:found_user) { User.find_by_email(@user.email) }
+
+    describe "should return the user object with a valid password" do
+      it { should == found_user.authenticate(@user.password) }
+    end
+
+    describe "should reject an invalid password" do
+      let(:user_with_invalid_pass) { found_user.authenticate("invalid") }
+      it { should_not == user_with_invalid_pass}
+      specify { user_with_invalid_pass.should be_false }
+    end
+  end
+
+  describe "should not have a password less than 6 charaters" do
+    before { @user.password = @user.password_confirmation = "a" * 5 }
+    it { should_not be_valid }
+  end
+
+  describe "should not have a nil password_confirmation" do
+    before { @user.password_confirmation = nil }
+    it { should_not be_valid }
+  end
+
+  describe "should not have a blank password" do
+    before { @user.password = @user.password_confirmation = " "}
+    it { should_not be_valid }
+  end
+
+  describe "should have a matching pass/confirmation" do
+    before { @user.password = "fdsa" }
+    it { should_not be_valid }
+  end
   
   describe "when name is not present" do
     before { @user.name = " " }
@@ -103,12 +144,13 @@ end
 #
 # Table name: users
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  netid      :string(255)
-#  cardnumber :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
+#  id              :integer         not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  netid           :string(255)
+#  cardnumber      :string(255)
+#  created_at      :datetime        not null
+#  updated_at      :datetime        not null
+#  password_digest :string(255)
 #
 
