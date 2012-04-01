@@ -3,14 +3,13 @@ require 'spec_helper'
 describe User do
   
   before { @user = User.new(name: "Example User", email: "user@example.com",
-                            netid: "xyz89", cardnumber: "999999999",
-                            password: "asdfgh", password_confirmation: "asdfgh") }
+                            cardnumber: "999999999", password: "asdfgh",
+                            password_confirmation: "asdfgh") }
   
   subject { @user }
   
   it { should respond_to(:name) }
   it { should respond_to(:email) }
-  it { should respond_to(:netid) }
   it { should respond_to(:cardnumber) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
@@ -64,11 +63,6 @@ describe User do
     it { should_not be_valid }
   end
   
-  describe "when netid is not present" do
-    before { @user.netid = " " }
-    it { should_not be_valid }
-  end
-  
   describe "when cardnumber is not present" do
     before { @user.cardnumber = " " }
     it { should_not be_valid }
@@ -116,16 +110,6 @@ describe User do
       user_with_same_email = @user.dup
       user_with_same_email.email = @user.email.upcase
       user_with_same_email.save
-    end
-    
-    it { should_not be_valid }
-  end
-  
-  describe "when netid is already taken" do
-    before do
-      user_with_same_netid = @user.dup
-      user_with_same_netid.netid = @user.netid.upcase
-      user_with_same_netid.save
     end
     
     it { should_not be_valid }

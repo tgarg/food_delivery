@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible(:name, :email, :netid, :cardnumber,
-                  :password, :password_confirmation)
+  attr_accessible(:name, :email, :cardnumber, :password, :password_confirmation)
   has_secure_password
   
   validates :name, presence: true, length: { maximum: 50 }
@@ -8,7 +7,6 @@ class User < ActiveRecord::Base
   VALID_CARDNUMBER_REGEX = /\d{9}/
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, 
             uniqueness: { case_sensitive: false }
-  validates :netid, presence: true, uniqueness: { case_sensitive: false }
   validates :cardnumber, presence: true, format: { with: VALID_CARDNUMBER_REGEX },
             length: { is: 9 }, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
