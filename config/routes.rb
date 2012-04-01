@@ -1,8 +1,9 @@
 FoodDelivery::Application.routes.draw do
 
-  get "users/new"
-
   root    :to => 'Pages#home'
+	resources :users
+
+	match '/signup',		:to => 'Users#new'
 
   match '/about',  		:to => 'Pages#about'
   match '/faq',    		:to => 'Pages#faq'
