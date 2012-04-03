@@ -8,7 +8,23 @@ Note: This will respect the variable assignments above!*/
 
 @import "bootstrap";
 
+
 /*Hartl's CSS with some tweaks*/
+
+
+/* mixins, variables, etc. */
+
+/* define box_sizing, which we later use
+as formatting for the debug dump */
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 /* header */
 
 #logo {
@@ -107,12 +123,21 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
+
+/* Changed padding for h1 to 30px
+from 10px to create breathing room for "sign up!" header 
+on the new signup page at /signup */
+
+/* "Create my account" button feels
+uncomfortably close to "confirmation" input box
+on the signup page at /signup */
+
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 35px;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 30px;
   color: #3B321F;
 }
 
@@ -171,4 +196,62 @@ dl {
 /*Stretch class to make elements stretch across the screen*/
 .stretch {
   width: 100%;
+}
+
+/* miscellaneous (formatting the debug info) */
+
+.debug_dump {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 45px;
+	@include box_sizing;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+	border: 1px solid #bbb;
+	width: 100%;
+	padding: 10px;
+	height: auto;
+	margin-bottom: 15px;
+	@include box_sizing;
+}
+
+#error_explanation {
+  color:#f00;
+  ul {
+	list-style: none;
+	margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
+/* sidebar */
+
+aside {
+  section {
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.6em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+    }
+  }
 }

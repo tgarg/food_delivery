@@ -1,0 +1,14 @@
+<!-- This code will display form submission error messages! -->
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+	<div class="alert alert-error">
+		Umm, dude you made <%= pluralize(@user.errors.count, "mistake") %>.
+	</div>
+	<ul>
+	<% @user.errors.full_messages.each do |msg| %>
+	  <li>* <%= msg %></li>
+	<% end %>
+	</ul>
+  </div>
+<% end %>
