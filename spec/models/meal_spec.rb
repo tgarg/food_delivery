@@ -2,14 +2,27 @@ require 'spec_helper'
 
 describe Meal do
   
-	before { @meal = Meal.new(name: "Fried Rice", price: 10.95) }
+  let(:restaurant) { FactoryGirl.create(:restaurant) }
+	before { @meal = restaurant.meals.build(name: "Fried Rice", price: 10.95) }
 
 	subject { @meal }
 
 	it { should respond_to :name }
 	it { should respond_to :price }
+	it { should respond_to :restaurant_id }
+	it { should respond_to :restaurant }
+	its(:restaurant) { should == restaurant }
 
 	it { should be_valid }
+
+
+  describe "accessible attributes" do
+    it "should not allow access to restaurant_id" do
+      expect do
+        Meal.new(restaurant_id: restaurant.id)
+      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end    
+  end
 
 	describe "validations should require" do
 		
@@ -46,10 +59,11 @@ end
 #
 # Table name: meals
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  price      :decimal(, )
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
+#  id            :integer         not null, primary key
+#  name          :string(255)
+#  price         :decimal(, )
+#  created_at    :datetime        not null
+#  updated_at    :datetime        not null
+#  restaurant_id :integer
 #
 

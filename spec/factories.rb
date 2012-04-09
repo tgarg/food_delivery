@@ -6,4 +6,15 @@ FactoryGirl.define do
     password_confirmation "foobar"
     cardnumber "999999999"
   end
+
+  factory :restaurant do
+		name				"McDonalds"
+		description "There is a fine ass white girl outside my window right now."
+  end
+
+  factory :meal do
+    name    "Fried Rice"
+    price   "8.95"
+    restaurant
+  end
 end

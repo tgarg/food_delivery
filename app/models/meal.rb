@@ -1,4 +1,6 @@
 class Meal < ActiveRecord::Base
+	belongs_to :restaurant
+	attr_accessible(:name, :price)
 
 # having issues getting this REGEX to work properly, Rubular says its fine
 # but the test suite isn't passing. Either the test is written incorrectly,
@@ -12,10 +14,11 @@ end
 #
 # Table name: meals
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  price      :decimal(, )
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
+#  id            :integer         not null, primary key
+#  name          :string(255)
+#  price         :decimal(, )
+#  created_at    :datetime        not null
+#  updated_at    :datetime        not null
+#  restaurant_id :integer
 #
 
