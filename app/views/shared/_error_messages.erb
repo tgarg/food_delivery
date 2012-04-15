@@ -1,12 +1,14 @@
 <!-- This code will display form submission error messages! -->
+<!-- I had to adjust the partial to accept an object named 'object',
+before it was using the instance variable "@user" -->
 
-<% if @user.errors.any? %>
+<% if object.errors.any? %>
   <div id="error_explanation">
 	<div class="alert alert-error">
-		Umm, dude you made <%= pluralize(@user.errors.count, "mistake") %>.
+		Umm, dude you made <%= pluralize(object.errors.count, "mistake") %>.
 	</div>
 	<ul>
-	<% @user.errors.full_messages.each do |msg| %>
+	<% object.errors.full_messages.each do |msg| %>
 	  <li>* <%= msg %></li>
 	<% end %>
 	</ul>

@@ -1,8 +1,12 @@
 FoodDelivery::Application.routes.draw do
+
+  resources :restaurants, only: [:new, :create, :show] # temporary, we can add the other actions later.
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   
   root    :to => 'Pages#home'
+
+  match '/adnew',     :to => 'Restaurants#new'
   
 	match '/signup',		:to => 'Users#new'
 	
