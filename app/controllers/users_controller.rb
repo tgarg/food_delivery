@@ -18,3 +18,10 @@ class UsersController < ApplicationController
     end 
   end
 end
+
+private
+  
+  # This method can be used to define a before filter for certain actions. May need to move it into a helper file
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
+  end

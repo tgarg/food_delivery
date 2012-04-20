@@ -16,8 +16,14 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token)}
   it { should respond_to(:authenticate) }
+  it { should respond_to(:admin) }
   
   it { should be_valid }
+
+  describe "with admin set to 'true'" do
+    before { @user.toggle!(:admin) }
+    it { should be_admin }
+  end
 
   describe "authenticate method" do
     before { @user.save }
@@ -142,5 +148,6 @@ end
 #  updated_at      :datetime        not null
 #  password_digest :string(255)
 #  remember_token  :string(255)
+#  admin           :boolean         default(FALSE)
 #
 
