@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Meal do
   
   let(:restaurant) { FactoryGirl.create(:restaurant) }
-	before { @meal = restaurant.meals.build(name: "Fried Rice", price: 10.95) }
+	before { @meal = restaurant.meals.build(name: "Fried Rice", price: "10.95") }
 
 	subject { @meal }
 
@@ -47,7 +47,7 @@ describe Meal do
 		end
 
 		describe "price should not be invalid" do
-			invalid_prices = %w[.97 10.560]
+			invalid_prices = %w[".97" "10.560"]
 			invalid_prices.each do |p|
 				before { @meal.price = p }
 				it { should_not be_valid }
